@@ -21,10 +21,15 @@ public interface HerosDao {
 
     /**
      * 编辑
-     * @param hes
+     * @param hes 实体Heros
      * @return
      */
     public int updateheros(Heros hes);
 
+    /**
+     * 添加
+     * @param hes 实体Heros
+     * @return
+     */
     public int inser(Heros hes);
 }

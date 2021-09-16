@@ -13,6 +13,7 @@ import java.io.InputStream;
  */
 public class GetSqlSession {
     public static SqlSession getsSession() throws IOException {
+        //总配置
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);

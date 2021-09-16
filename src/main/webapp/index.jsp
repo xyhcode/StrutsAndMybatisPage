@@ -178,12 +178,19 @@
         asex=sex;
         afirst=first;
         aimg=img;
+        //隐藏id框赋值
         $("#heid").val(id);
+        //赋值name框
         $("#name").val(name);
+        //赋值nickname框
         $("#nickname").val(nickname);
+        //赋值sex框
         $("#sex").val(sex);
+        //赋值first框
         $("#first").val(first);
+        //更改预览图片路径
         $("#tp").attr("src","herosimg/"+img+"");
+        //赋值隐藏图片名称框
         $("#fn").val(img)
         layer.open({
             type : 1,
@@ -203,16 +210,17 @@
         $("#tp").attr("src","herosimg/"+aimg+"");
         $("#fn").val(aimg);
     }
-    //点击图片
+    //编辑点击图片
     function fils(){
         $("#finp").click();
     }
 
+    //添加点击图片
     function infils(){
         $("#infinp").click();
     }
 
-    //点击图片
+    //编辑点击图片预览
     function wj(ev){
         var sr=document.getElementById("tp");
         //获取文件对象
@@ -226,6 +234,7 @@
         }
     }
 
+    //编辑点击图片预览
     function inwj(ev){
         var sr=document.getElementById("intp");
         //获取文件对象

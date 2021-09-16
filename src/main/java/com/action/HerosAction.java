@@ -20,23 +20,54 @@ import java.util.List;
  */
 public class HerosAction extends ActionSupport {
     PageInfo pa;
+    /**
+     * 第几页
+     */
     int page=1;
+    /**
+     * id
+     */
     int id;
-    File myFile;//form表单的name
-    String myFileContentType;//文件类型
-    String myFileFileName;//文件名
-    String destPath;//存放路径
+    /**
+     * form表单的文件上传框name
+     */
+    File myFile;
+    /**
+     * 文件类型
+     */
+    String myFileContentType;
+    /**
+     * 文件名
+     */
+    String myFileFileName;
+    /**
+     * 储存路径
+     */
+    String destPath;
+    /**
+     * 文件原名称
+     */
     String filnae;
 
-    //name
+    /**
+     * name
+     */
     String name;
-    //id
+    /**
+     * id
+     */
     int herid;
-    //nickname
+    /**
+     * nickname
+     */
     String nickname;
-    //sex
+    /**
+     * sex
+     */
     int sex;
-    //first
+    /**
+     * first
+     */
     String first;
 
     public String getFilnae() {
@@ -183,26 +214,32 @@ public class HerosAction extends ActionSupport {
         //filename
         filnae=request.getParameter("filnae");
         SqlSession session= GetSqlSession.getsSession();
+        //如果用户没有修改图片
         if(myFile==null){
             HerosDao herdao=session.getMapper(HerosDao.class);
+            //实体构造方法
             Heros hi=new Heros(herid,name,nickname,sex,first,filnae);
+            //执行修改方法
             int cf=herdao.updateheros(hi);
-            session.commit();
-            session.close();
-            show();
         }else{
+            //修改图片
             destPath= ServletActionContext.getServletContext().getRealPath("/herosimg");
             System.out.println("Src File name: " + myFile);
             System.out.println("Dst File name: " + myFileFileName);
             File destFile  = new File(destPath, myFileFileName);
             FileUtils.copyFile(myFile, destFile);
+            //dao层
             HerosDao herdao=session.getMapper(HerosDao.class);
+            //实体类构造方法
             Heros hi=new Heros(herid,name,nickname,sex,first,myFileFileName);
             int cf=herdao.updateheros(hi);
-            session.commit();
-            session.close();
-            show();
         }
+        //提交事务
+        session.commit();
+        //关闭
+        session.close();
+        //执行分页方法
+        show();
         return SUCCESS;
     }
 
@@ -223,9 +260,6 @@ public class HerosAction extends ActionSupport {
             HerosDao herdao=session.getMapper(HerosDao.class);
             Heros hi=new Heros(name,nickname,sex,first,null);
             int cf=herdao.inser(hi);
-            session.commit();
-            session.close();
-            show();
         }else{
             destPath= ServletActionContext.getServletContext().getRealPath("/herosimg");
             System.out.println("Src File name: " + myFile);
@@ -235,10 +269,10 @@ public class HerosAction extends ActionSupport {
             HerosDao herdao=session.getMapper(HerosDao.class);
             Heros hi=new Heros(name,nickname,sex,first,myFileFileName);
             int cf=herdao.inser(hi);
-            session.commit();
-            session.close();
-            show();
         }
+        session.commit();
+        session.close();
+        show();
         return SUCCESS;
     }
 }

@@ -4,11 +4,29 @@ package com.entity;
  * @author 羡羡
  */
 public class Heros {
+    /**
+     * id
+     */
     public int id;
+    /**
+     * 英雄名称
+     */
     public String name;
+    /**
+     * 英雄别名
+     */
     public String nickname;
+    /**
+     * 性别 0：女  1：男
+     */
     public int sex;
+    /**
+     * 职业
+     */
     public String first;
+    /**
+     * 英雄图片
+     */
     public String img;
 
     public int getId() {

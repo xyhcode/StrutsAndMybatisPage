@@ -5,7 +5,9 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <package name="lol" extends="struts-default" namespace="/">
+        <!--通配符-->
         <global-allowed-methods>regex:.*</global-allowed-methods>
+
         <action name="Heros*" class="com.action.HerosAction" method="{1}">
             <result>/index.jsp</result>
         </action>

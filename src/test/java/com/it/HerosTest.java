@@ -37,6 +37,9 @@ public class HerosTest {
         session.close();
     }
 
+    /**
+     * 测试分页查询
+     */
     @Test
     public void sehealltest(){
         PageHelper.startPage(1,5);
@@ -53,12 +56,18 @@ public class HerosTest {
     }
 
 
+    /**
+     * 测试删除
+     */
     @Test
     public void del(){
         int hu=her.delherol(170);
         System.out.println(hu);
     }
 
+    /**
+     * 测试更新
+     */
     @Test
     public void updat(){
         Heros he=new Heros(196,"22","爱的",1,"afd","a.img");
@@ -66,6 +75,9 @@ public class HerosTest {
         System.out.println(cf);
     }
 
+    /**
+     * 测试添加
+     */
     @Test
     public void inser(){
         Heros hi=new Heros("11","222",0,"add","cf.png");
