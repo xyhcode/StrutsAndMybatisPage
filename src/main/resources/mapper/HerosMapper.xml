@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HerosDao">
+    <!--分页查询-->
+    <select id="seheall" resultType="com.entity.Heros">
+        select * from heros
+    </select>
+
+    <!--删除-->
+    <delete id="delherol">
+        delete from heros where id=#{id}
+    </delete>
+
+    <!--编辑-->
+    <update id="updateheros">
+        update heros
+        <set>
+            <if test="name!=null">name=#{name},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="nickname!=null">nickname=#{nickname},</if>
+            <if test="first!=null">first=#{first},</if>
+            <if test="img!=null">img=#{img},</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--增加-->
+    <insert id="inser" parameterType="com.entity.Heros">
+       insert into heros(name,nickname,sex,first ,img) values (#{name},#{nickname},#{sex},#{first},#{img});
+    </insert>
+</mapper>
