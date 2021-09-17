@@ -19,6 +19,12 @@ import java.util.List;
  * @author 羡羡
  */
 public class HerosAction extends ActionSupport {
+    /**
+     * 搜索
+     */
+    String soname;
+
+
     PageInfo pa;
     /**
      * 第几页
@@ -69,6 +75,14 @@ public class HerosAction extends ActionSupport {
      * first
      */
     String first;
+
+    public String getSoname() {
+        return soname;
+    }
+
+    public void setSoname(String soname) {
+        this.soname = soname;
+    }
 
     public String getFilnae() {
         return filnae;
@@ -179,7 +193,8 @@ public class HerosAction extends ActionSupport {
         SqlSession session= GetSqlSession.getsSession();
         HerosDao herdao=session.getMapper(HerosDao.class);
         PageHelper.startPage(page,5);
-        List seall=herdao.seheall();
+        System.out.println(soname);
+        List seall=herdao.seheall(soname);
         pa=new PageInfo(seall);
         return SUCCESS;
     }

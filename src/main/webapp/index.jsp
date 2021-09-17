@@ -37,7 +37,7 @@
         </div>
         <div style="display: table-cell" class="layui-form-item">
             <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="reload" id="sear" lay-submit="" lay-filter="search"
-                    style="margin-left: 15px"><i class="layui-icon" >&#xe615;</i>搜&emsp;索
+                    style="margin-left: 15px" onclick="search()"><i class="layui-icon" >&#xe615;</i>搜&emsp;索
             </button>
             <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm" onclick="res()">
                 <i class="layui-icon">&#xe631;</i>重&emsp;置
@@ -124,7 +124,7 @@
             ,next: '<em>→</em>'
             ,jump: function(obj, first) {//分页回调 每次都会触发
                 if(!first){
-                    location.href="Herosshow?page="+obj.curr;
+                    location.href="Herosshow?soname=${soname}&page="+obj.curr;
                 }
             }
         });
@@ -145,6 +145,12 @@
     //头部重置
     function res(){
         $("#cpk").val("");
+    }
+
+    //搜索
+    function search(){
+        var likname=$("#cpk").val();
+        location.href="Herosshow?soname="+likname+"";
     }
 
     //刷新

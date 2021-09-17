@@ -5,7 +5,7 @@
 <mapper namespace="com.dao.HerosDao">
     <!--分页查询-->
     <select id="seheall" resultType="com.entity.Heros">
-        select * from heros
+        select * from heros where name like '%${value}%'
     </select>
 
     <!--删除-->

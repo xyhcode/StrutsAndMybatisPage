@@ -43,7 +43,7 @@ public class HerosTest {
     @Test
     public void sehealltest(){
         PageHelper.startPage(1,5);
-        List seall=her.seheall();
+        List seall=her.seheall("soname");
         System.out.println(seall);
         PageInfo pa=new PageInfo(seall);
         pa.setNavigatePages(10);

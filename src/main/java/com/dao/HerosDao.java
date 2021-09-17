@@ -12,7 +12,7 @@ public interface HerosDao {
      * 分页查询
      * @return
      */
-    public List seheall();
+    public List seheall(String name);
 
     /**
      * 删除
