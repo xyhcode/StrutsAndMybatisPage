@@ -1,7 +1,7 @@
 # StrutsAndMybatisPage
 
 #### 介绍
-Struts框架 和 Mybatis框架 和 layui实现增删改查示例
+Struts框架 和 Mybatis框架 和 layui实现增加、删除、修改、分页查询、搜索查询示例
 
 #### 软件架构
 Struts2框架 Mybatis框架  layui jquery
